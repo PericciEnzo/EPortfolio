@@ -238,3 +238,47 @@ footer {
     color: var(--text-color) !important;
     transition: color 0.3s ease;
 }
+/* Ajoutez à la fin de votre theme.css */
+
+/* Footer */
+footer {
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+footer a {
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    opacity: 0.8;
+}
+
+/* Sticky footer */
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.flex-grow-1 {
+    flex: 1 0 auto;
+}
+
+/* Mode sombre pour le footer */
+:root[data-theme="dark"] footer {
+    background-color: var(--card-bg);
+    border-top-color: var(--border-color) !important;
+}
+
+:root[data-theme="dark"] footer .text-muted {
+    color: #9e9e9e !important;
+}
+
+:root[data-theme="dark"] footer a:not(.btn) {
+    color: var(--bs-link-color) !important;
+}

@@ -1,0 +1,57 @@
+{# templates/partials/_footer.html.twig #}
+<footer class="mt-5 py-4 border-top">
+    <div class="container">
+        <div class="row">
+            {# Colonne 1 : À propos #}
+            <div class="col-md-4 mb-3">
+                <h5>À propos</h5>
+                <p class="text-muted">
+                    Portfolio professionnel présentant mes projets, 
+                    compétences et expériences dans le développement, du réseau et de la télecomunication.
+                </p>
+            </div>
+
+            {# Colonne 2 : Liens rapides #}
+            <div class="col-md-4 mb-3">
+                <h5>Liens rapides</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('app_blog') }}" class="text-decoration-none">Accueil</a></li>
+                    <li><a href="#" class="text-decoration-none">À propos</a></li>
+                    <li><a href="#" class="text-decoration-none">Projets</a></li>
+                    <li><a href="#" class="text-decoration-none">Contact</a></li>
+                </ul>
+            </div>
+
+            {# Colonne 3 : Réseaux sociaux #}
+            <div class="col-md-4 mb-3">
+                <h5>Me suivre</h5>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-decoration-none fs-4" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none fs-4" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-decoration-none fs-4" title="Instagram">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+
+        {# Informations légales #}
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-0 text-muted">
+                    &copy; {{ "now"|date("Y") }} Enzo. Tous droits réservés.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <a href="{{ path('app_legal') }}" class="text-decoration-none me-3">Mentions légales</a>
+                <a href="{{ path('app_privacy') }}" class="text-decoration-none">Politique de confidentialité</a>
+            </div>
+        </div> 
+    </div>
+</footer>
