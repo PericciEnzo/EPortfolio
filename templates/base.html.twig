@@ -12,25 +12,25 @@
     <body>
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/blog">.Enzo</a>
+        <a class="navbar-brand" href="{{ path('app_blog') }}">.Enzo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Accueil
+              <a class="nav-link active" href="{{ path('app_blog') }}">Accueil
                 <span class="visually-hidden">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">À propos</a>
+              <a class="nav-link" href="{{ path('app_blog') }}">À propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Projets</a>
+              <a class="nav-link" href="{{ path('app_blog') }}">Projets</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="{{ path('app_blog') }}">Contact</a>
             </li>
           </ul>
           <button id="theme-toggle" class="btn-theme">
