@@ -1,0 +1,222 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon CV - Enzo Pericci{% endblock %}
+
+{% block body %}
+<style>
+    /* On ne touche pas au body pour garder le thème global (Bootswatch) */
+
+    .cv-container {
+        max-width: 900px;
+        margin: 4rem auto;
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .cv-header {
+        text-align: center;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .cv-header h1 {
+        color: #667eea;
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cv-header p {
+        color: #666;
+        font-size: 1.1rem;
+    }
+
+    .cv-section {
+        margin-bottom: 2.5rem;
+    }
+
+    .cv-section h2 {
+        color: #764ba2;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid #667eea;
+        padding-left: 1rem;
+    }
+
+    .cv-item {
+        margin-bottom: 1.5rem;
+        padding-left: 1rem;
+    }
+
+    .cv-item h3 {
+        color: #667eea;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .cv-item .date {
+        color: #999;
+        font-style: italic;
+        margin-bottom: 0.5rem;
+    }
+
+    .cv-item p {
+        line-height: 1.6;
+        color: #555;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill-item {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        padding: 1rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: transform 0.3s;
+    }
+
+    .btn-back:hover {
+        transform: scale(1.05);
+    }
+
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .contact-info span {
+        color: #666;
+    }
+
+    @media (max-width: 768px) {
+        .cv-container {
+            margin: 2rem 1rem;
+            padding: 2rem 1.5rem;
+        }
+    }
+</style>
+
+<div class="cv-container">
+    <div class="cv-header">
+        <h1>ENZO PERICCI</h1>
+        <p>Étudiant en BUT Réseaux & Télécommunications</p>
+        <div class="contact-info">
+            <span>📧 enzo.pericci@iut-roanne.fr</span>
+            <span>📱 06 XX XX XX XX</span>
+            <span>📍 Roanne, France</span>
+        </div>
+    </div>
+
+    {# FORMATION #}
+    <div class="cv-section">
+        <h2>Formation</h2>
+
+        {# Bac général en premier #}
+        <div class="cv-item">
+            <h3>Baccalauréat Général</h3>
+            <p class="date">2022 - 2025 | Lycée du Forez, Feurs</p>
+            <p>
+                Spécialités Mathématiques et NSI (Numérique et Sciences Informatiques).<br>
+                Baccalauréat obtenu en 2025.
+            </p>
+        </div>
+
+        {# BUT RT ensuite #}
+        <div class="cv-item">
+            <h3>BUT Réseaux & Télécommunications</h3>
+            <p class="date">Depuis septembre 2025 | IUT de Roanne</p>
+            <p>
+                Formation en cours en 1ère année de BUT RT, orientée vers l'administration réseau, 
+                les systèmes, la cybersécurité et les télécommunications. Groupe TP : A1.
+            </p>
+        </div>
+    </div>
+
+    {# COMPÉTENCES  #}
+    <div class="cv-section">
+        <h2>Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                Anglais<br>
+                <small>Niveau scolaire (lycée / début BUT)</small>
+            </div>
+            <div class="skill-item">
+                Italien<br>
+                <small>Niveau fin de lycée</small>
+            </div>
+            <div class="skill-item">
+                🎓 Parcours actuel<br>
+                <small>Étudiant en 1ère année de BUT Réseaux & Télécommunications</small>
+            </div>
+        </div>
+    </div>
+
+    {# EXPÉRIENCES & PROJETS #}
+    <div class="cv-section">
+        <h2>Expériences & Projets</h2>
+
+        <div class="cv-item">
+            <h3>Stage d'observation de 3ème</h3>
+            <p class="date">Février 2022 | Pharmacie des Thermes, 42210 Montrond-les-Bains</p>
+            <p>
+                Découverte du fonctionnement du monde du travail, observation du travail en équipe 
+                et du contact avec la clientèle, immersion dans un environnement professionnel.
+            </p>
+        </div>
+
+        <div class="cv-item">
+            <h3>Agent d'accueil</h3>
+            <p class="date">Juillet 2024 | MJC Kipetou, 42210 Montrond-les-Bains</p>
+            <p>
+                Accueil du public, informations aux usagers, aide à l'organisation des activités 
+                et participation à la vie associative locale.
+            </p>
+        </div>
+
+        <div class="cv-item">
+            <h3>E-Portfolio Personnel</h3>
+            <p class="date">2025 - 2026</p>
+            <p>
+                Développement d'un e-portfolio avec Symfony/Twig pour présenter mon parcours, 
+                mes compétences et mes projets en réseaux et télécommunications.
+            </p>
+        </div>
+    </div>
+
+    {# CENTRES D'INTÉRÊT #}
+    <div class="cv-section">
+        <h2>Centres d'intérêt</h2>
+        <div class="cv-item">
+            <p>
+                ⚽ <strong>Sport :</strong> Musculation, activités physiques<br>
+                🎮 <strong>Jeux vidéo :</strong> compétitifs, jeux de stratégie<br>
+                💻 <strong>Technologie :</strong> apprentissage de nouvelles technologies <br>
+            </p>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{{ path('app_blog') }}" class="btn-back">← Retour à l'accueil</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,279 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Projets - Enzo Pericci{% endblock %}
+
+{% block body %}
+<style>
+    /* On laisse le body au thème Bootswatch */
+
+    .projets-container {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    /* Cartes projet : mêmes logiques que les encadrés de compétences */
+    .projet-card {
+        background: var(--card-bg);
+        color: var(--text-color);
+        border-radius: 15px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 40px var(--shadow);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s;
+    }
+
+    .projet-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .projet-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .projet-icon {
+        font-size: 3rem;
+    }
+
+    .projet-card h2 {
+        color: var(--heading-color);
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    .projet-meta {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-color);
+        opacity: 0.9;
+    }
+
+    .projet-description {
+        line-height: 1.8;
+        color: var(--text-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .projet-tags {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+    }
+
+    .tag {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+    }
+
+    .projet-details {
+        background: var(--bs-body-bg);
+        color: var(--text-color);
+        padding: 1.5rem;
+        border-radius: 10px;
+        border-left: 5px solid #4facfe;
+        border: 1px solid var(--border-color);
+    }
+
+    .projet-details h3 {
+        color: var(--heading-color);
+        margin-bottom: 1rem;
+    }
+
+    .projet-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .projet-details li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+    }
+
+    .projet-details li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #00f2fe;
+        font-weight: bold;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: var(--card-bg);
+        color: #4facfe;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: transform 0.3s;
+        font-weight: bold;
+        box-shadow: 0 5px 20px var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    .btn-back:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .projets-container {
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .projet-card {
+            padding: 1.5rem;
+        }
+
+        .projet-header {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="projets-container">
+    <div class="page-header">
+        <h1>MES PROJETS</h1>
+        <p>Projets réalisés dans le cadre de ma première année de BUT Réseaux &amp; Télécommunications</p>
+    </div>
+
+    {# SAE1.02 #}
+    <div class="projet-card">
+        <div class="projet-header">
+            <span class="projet-icon">🖧</span>
+            <div>
+                <h2>SAE1.02 – Extension d’un réseau existant & TFTP</h2>
+            </div>
+        </div>
+
+        <div class="projet-meta">
+            <div class="meta-item">
+                <span>📅</span>
+                <span>1ère année de BUT RT</span>
+            </div>
+            <div class="meta-item">
+                <span>🏫</span>
+                <span>Projet académique – Mise en place de réseau</span>
+            </div>
+        </div>
+
+        <p class="projet-description">
+            Projet consistant à étendre un réseau existant en ajoutant un switch central relié à trois LAN,
+            un PC d’administration et un serveur TFTP. L’objectif était de comprendre en détail le
+            fonctionnement du réseau mis en place, de documenter l’utilisation de Tftpd32/64 et d’analyser
+            un fichier de captures Wireshark.
+        </p>
+
+        <div class="projet-tags">
+            <span class="tag">SAE1.02</span>
+            <span class="tag">Switch</span>
+            <span class="tag">LAN</span>
+            <span class="tag">TFTP</span>
+            <span class="tag">Wireshark</span>
+        </div>
+
+        <div class="projet-details">
+            <h3>Réalisations techniques :</h3>
+            <ul>
+                <li>Ajout d’un switch pour relier trois LAN.</li>
+                <li>Connexion et configuration d’un PC administrateur dédié au switch.</li>
+                <li>Mise en place d’un serveur TFTP connecté au switch.</li>
+                <li>Rédaction d’une fiche d’utilisation de Tftpd32/64 pour le transfert de fichiers.</li>
+                <li>Analyse détaillée d’un fichier de captures Wireshark pour comprendre les échanges réseau.</li>
+                <li>Compréhension globale de l’architecture réseau créée et de ses flux.</li>
+            </ul>
+        </div>
+    </div>
+
+    {# SAE1.04 / Portfolio #}
+    <div class="projet-card">
+        <div class="projet-header">
+            <span class="projet-icon">💻</span>
+            <div>
+                <h2>SAE1.04 – E‑Portfolio personnel avec Symfony</h2>
+            </div>
+        </div>
+
+        <div class="projet-meta">
+            <div class="meta-item">
+                <span>📅</span>
+                <span>1ère année de BUT RT – 2025/2026</span>
+            </div>
+            <div class="meta-item">
+                <span>🏫</span>
+                <span>SAE1.04 – Projet de portfolio numérique</span>
+            </div>
+        </div>
+
+        <p class="projet-description">
+            Conception et réalisation de ce portfolio web pour présenter mon parcours, mes compétences
+            et mes projets en Réseaux &amp; Télécommunications. Le site a été développé avec Symfony et Twig,
+            en intégrant une navigation fluide, un thème clair/sombre et des sections dédiées à mon CV,
+            mes compétences et mes projets.
+        </p>
+
+        <div class="projet-tags">
+            <span class="tag">SAE1.04</span>
+            <span class="tag">Symfony</span>
+            <span class="tag">Twig</span>
+            <span class="tag">Portfolio</span>
+            <span class="tag">Front‑end</span>
+        </div>
+
+        <div class="projet-details">
+            <h3>Fonctionnalités développées :</h3>
+            <ul>
+                <li>Architecture MVC avec Symfony et organisation du code en contrôleurs/templates.</li>
+                <li>Templates Twig pour les pages CV, compétences, projets et à propos.</li>
+                <li>Navigation avec ancrages et barre de navigation fixe (mode jour/nuit).</li>
+                <li>Section « Compétences » reliée à des documents de preuves et analyses réflexives.</li>
+                <li>Page CV avec lien de téléchargement (PDF/DOCX) via un formulaire de contact.</li>
+                <li>Design responsive et intégration du thème Bootswatch avec gestion du thème clair/sombre.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{{ path('app_blog') }}" class="btn-back">← Retour à l'accueil</a>
+    </div>
+</div>
+{% endblock %}

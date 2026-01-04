@@ -1,14 +1,466 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Enzo - Cyber/Dev{% endblock %}
+{% block title %}Enzo Pericci - EPortfolio{% endblock %}
 
 {% block body %}
 <style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    /* On laisse le body géré par Bootswatch / theme.css */
+
+    /* Sections communes */
+    section {
+        min-height: 100vh;
+        padding: 6rem 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .section-content {
+        max-width: 1200px;
+        width: 100%;
+        background: var(--card-bg);
+        color: var(--text-color);
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px var(--shadow);
+        border: 1px solid var(--border-color);
+        opacity: 1;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--heading-color);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: var(--heading-color);
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Section Accueil */
+    #accueil {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        color: var(--text-color);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .hero-content h1 {
+        color: var(--heading-color);
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    .info-card {
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        margin-top: 2rem;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .info-item {
+        background: var(--bs-body-bg);
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        border: 1px solid var(--border-color);
+    }
+
+    .info-item strong {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--heading-color);
+    }
+
+    .info-item p {
+        margin: 0;
+        color: var(--text-color);
+    }
+
+    /* Section À propos */
+    #apropos {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .feature-card {
+        background: var(--bs-body-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        cursor: pointer;
+        border: 2px solid var(--border-color);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px var(--shadow);
+        border-color: #667eea;
+    }
+
+    .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+        color: var(--heading-color);
+        margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    .btn-link {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: transform 0.3s;
+        border: none;
+    }
+
+    .btn-link:hover {
+        transform: scale(1.05);
+    }
+
+    /* Section Contact */
+    #contact {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+
+    .contact-form {
+        max-width: 600px;
+        margin: 2rem auto;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: var(--heading-color);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.8rem;
+        border: 2px solid var(--border-color);
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+        background: var(--card-bg);
+        color: var(--text-color);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #667eea;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.3s;
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+    }
+
+    .btn-secondary {
+        background: #f5576c;
+        color: #fff;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        
+        .info-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        section {
+            padding: 4rem 1rem 2rem;
+        }
+        
+        .section-content {
+            padding: 2rem 1.5rem;
+        }
+    }
 </style>
 
-<div class="example-wrapper">
-    <h1>Bienvenue ! </h1>
-</div>
+<!-- Section Accueil -->
+<section id="accueil">
+    <div class="hero-content">
+        <h1>BIENVENUE !</h1>
+        <p class="hero-subtitle">Je suis Enzo Pericci, étudiant passionné en BUT RT</p>
+        
+        <div class="info-card">
+            <h2 style="border: none;">Mon Profil</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>👤 Nom & Prénom</strong>
+                    <p>Enzo PERICCI</p>
+                </div>
+                <div class="info-item">
+                    <strong>🎓 Formation</strong>
+                    <p>BUT Réseaux & Télécommunications</p>
+                </div>
+                <div class="info-item">
+                    <strong>📍 Établissement</strong>
+                    <p>IUT de Roanne - 1ère année</p>
+                </div>
+                <div class="info-item">
+                    <strong>👥 Groupe TP</strong>
+                    <p>A1</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: left; line-height: 1.8;">
+                <p>
+                    Étudiant en première année de BUT Réseaux et Télécommunications à l'IUT de Roanne, 
+                    je me passionne pour les infrastructures réseau, l'administration système Linux et la cybersécurité. 
+                </p>
+                <p style="margin-top: 1rem;">
+                    Au-delà de mes études, je fais aussi du sport, notamment de la musculation. 
+                    Les jeux vidéo font également partie de mes passions, particulièrement les jeux de stratégie et les jeux 
+                    compétitifs. Je suis toujours à la recherche de nouveaux défis techniques et j'aime apprendre 
+                    de nouvelles technologies dans le domaine du réseau et du développement.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section À propos -->
+<section id="apropos">
+    <div class="section-content">
+        <h2>À Propos de Moi</h2>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+            Découvrez mon parcours, mes compétences et mes réalisations à travers différentes sections
+        </p>
+        
+        <div class="cards-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Mon CV</h3>
+                <p>
+                    Consultez mon parcours académique et professionnel, mes expériences en réseau 
+                    et administration système, ainsi que mes certifications et projets réalisés.
+                </p>
+                <a href="{{ path('app_cv') }}" class="btn-link">Voir mon CV</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💼</div>
+                <h3>Mes Compétences</h3>
+                <p>
+                    Explorez mes compétences techniques acquises : administration réseau Cisco, 
+                    Linux, configuration VLAN, DHCP, SSH, et bien plus encore issues de mon portfolio.
+                </p>
+                <a href="{{ path('app_competences') }}" class="btn-link">Découvrir mes compétences</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Mes Projets</h3>
+                <p>
+                    Découvrez mes réalisations techniques : SAE réseau, projets d’administration système
+                    et ce portfolio développé en Symfony.
+                </p>
+                <a href="{{ path('app_projets') }}" class="btn-link">Voir mes projets</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🌟</div>
+                <h3>En Savoir Plus</h3>
+                <p>
+                    Plongez dans mon univers : mes passions pour le sport et les jeux vidéo, 
+                    mes objectifs futurs et les projets qui me tiennent à cœur.
+                </p>
+                <a href="{{ path('app_about') }}" class="btn-link">Découvrir mon univers</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Contact -->
+<section id="contact">
+    <div class="section-content">
+        <h2>Me Contacter</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">
+            Remplissez ce formulaire pour obtenir mon CV au format de votre choix
+        </p>
+        
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="nom">Nom *</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="prenom">Prénom *</label>
+                <input type="text" id="prenom" name="prenom" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message (optionnel)</label>
+                <textarea id="message" name="message" rows="4" placeholder="Pourquoi souhaitez-vous obtenir mon CV ?"></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-primary" onclick="telechargerCV('pdf')">
+                    📥 Télécharger CV (PDF)
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="telechargerCV('docx')">
+                    📥 Télécharger CV (DOCX)
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<script>
+    // Smooth scroll pour les ancres de cette page (en plus de la navbar globale)
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || !href.startsWith('#')) return;
+
+                e.preventDefault();
+                const targetSection = document.querySelector(href);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // On force l'affichage de toutes les sections (pas d'animation)
+        document.querySelectorAll('.section-content').forEach(section => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Fonction de téléchargement du CV
+    function telechargerCV(format) {
+        const form = document.getElementById('contactForm');
+        
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+        
+        const nom = document.getElementById('nom').value;
+        const prenom = document.getElementById('prenom').value;
+        const email = document.getElementById('email').value;
+        
+        if (!nom || !prenom || !email) {
+            alert('Veuillez remplir tous les champs obligatoires.');
+            return;
+        }
+        
+        alert(`Merci ${prenom} ${nom} !\n\nLe téléchargement de mon CV au format ${format.toUpperCase()} va commencer.`);
+        
+        if (format === 'pdf') {
+            window.open('/cv/CV_Enzo_Pericci.pdf', '_blank');
+        } else if (format === 'docx') {
+            window.open('/cv/CV_Enzo_Pericci.docx', '_blank');
+        }
+        
+        setTimeout(() => {
+            form.reset();
+        }, 500);
+    }
+</script>
+
 {% endblock %}

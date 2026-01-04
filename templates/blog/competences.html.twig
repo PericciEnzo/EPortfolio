@@ -1,0 +1,336 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Compétences - Enzo Pericci{% endblock %}
+
+{% block body %}
+<style>
+    /* On laisse le body géré par Bootswatch / theme.css */
+
+    .competences-container {
+        max-width: 1200px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    /* Encadrés : utilisent les variables de ton thème */
+    .competence-card {
+        background: var(--card-bg);
+        color: var(--text-color);
+        border-radius: 15px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 40px var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    .competence-card h2 {
+        color: var(--heading-color);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-left: 5px solid #f093fb;
+        padding-left: 1rem;
+    }
+
+    .competence-description {
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+    }
+
+    .documents-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .documents-list li {
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.8rem;
+        background: var(--bs-body-bg);
+        color: var(--text-color);
+        border-left: 4px solid #f093fb;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        border: 1px solid var(--border-color);
+    }
+
+    .doc-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    .doc-code {
+        font-weight: bold;
+        color: var(--heading-color);
+    }
+
+    .doc-type {
+        font-size: 0.9rem;
+        opacity: 0.8;
+        color: var(--text-color);
+    }
+
+    .doc-link a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #f5576c;
+        transition: transform 0.2s, opacity 0.2s;
+        white-space: nowrap;
+    }
+
+    .doc-link a:hover {
+        opacity: 0.8;
+        transform: translateX(2px);
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 1rem 2rem;
+        background: var(--card-bg);
+        color: #f5576c;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: transform 0.3s;
+        font-weight: bold;
+        box-shadow: 0 5px 20px var(--shadow);
+        border: 1px solid var(--border-color);
+    }
+
+    .btn-back:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .competences-container {
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+        }
+
+        .competence-card {
+            padding: 1.5rem;
+        }
+
+        .doc-link a {
+            white-space: normal;
+        }
+    }
+</style>
+
+
+<div class="competences-container">
+    <div class="page-header">
+        <h1>MES COMPÉTENCES</h1>
+        <p>
+            Documents de preuves et analyses réflexives de mon portfolio, organisés selon les trois
+            compétences du BUT Réseaux &amp; Télécommunications.
+        </p>
+    </div>
+
+    {# RT1 #}
+    <div class="competence-card">
+        <h2>RT1 – Administrer les réseaux et l’Internet</h2>
+        <p class="competence-description">
+            Installation, configuration et administration des réseaux et des services Internet,
+            supervision et sécurisation des infrastructures.
+        </p>
+
+        <ul class="documents-list">
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC11.01 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT1 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1BmzwW6wRo64PPmQBlnm2W0gk5kLuNwkqnkN3naiwPIU/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)11.01 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC11.01</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1FW2eU990OanLIKWFv6L-NMqL1IaNqaSRuk2tVEIKR1s/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC11.02 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT1 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1AZ3A2DWp0DUqtB5c69q3RZJmV14boqSatReITzVKev8/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)11.02 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC11.02</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1yQRE_DU2j6AzBqG4b3mkdisRtuQe3cuqwEAPq6mLUAs/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC11.06 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT1 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1yZhpGeIkI9_PuI7wjSWQjRrYgOwqW8whPYLXFnpIHt0/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)11.06 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC11.06</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1MzocDvR8pvpDSfc_H4MCo5o5OvJG5i8BqS7ftBBBPO0/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    {# RT2 #}
+    <div class="competence-card">
+        <h2>RT2 – Connecter les entreprises et les usagers</h2>
+        <p class="competence-description">
+            Mise en œuvre des solutions réseaux permettant de connecter les utilisateurs, les sites
+            et les services d’une entreprise.
+        </p>
+
+        <ul class="documents-list">
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC12.01 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT2 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1I8H2NNovbSHQkJYO6eikoOcC19Kr0ofcaV3c3En6c8E/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)12.01 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC12.01</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1dEckPWXm76VCl0UJdgJiYPYABou88MCD5MfHPOdtexs/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC12.05 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT2 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1k3_Yrn2UWmJpfcix6r7I21Pv0nnQymV9BlgAJFzoHYY/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)12.05 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC12.05</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1hef79eAWVu-R7cFoMdqDcBH14g7uQ94nprAFnbWb2CY/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    {# RT3 #}
+    <div class="competence-card">
+        <h2>RT3 – Créer des outils et des applications informatiques pour les R&amp;T</h2>
+        <p class="competence-description">
+            Développement d’outils, scripts et applications facilitant l’exploitation, la supervision
+            ou la configuration des réseaux et systèmes.
+        </p>
+
+        <ul class="documents-list">
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC13.03 – Document de preuves</span>
+                    <span class="doc-type">Activité associée à la compétence RT3 (preuve)</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1D3vr9RvXAhDO0rHnU24OsHJBSE3ByAGJ_E6KUdkoUGo/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+
+            <li>
+                <div class="doc-info">
+                    <span class="doc-code">AC(R)13.03 – Analyse réflexive</span>
+                    <span class="doc-type">Réflexion personnelle sur l’AC13.03</span>
+                </div>
+                <div class="doc-link">
+                    <a href="https://docs.google.com/document/d/1f68SRHLoS-dGx5ra33ne_-Kn1ohn6CcwwACxT620W74/edit?usp=sharing" target="_blank">
+                        Ouvrir sur Google Drive →
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{{ path('app_blog') }}" class="btn-back">← Retour à l'accueil</a>
+    </div>
+</div>
+
+{% endblock %}
